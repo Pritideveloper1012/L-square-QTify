@@ -23,7 +23,8 @@
   font-weight: 500;
 }
 
-.grid {
+
+.section-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;

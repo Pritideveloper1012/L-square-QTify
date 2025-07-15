@@ -14,8 +14,9 @@ const Section = ({ title, fetchUrl }) => {
   const toggleCollapse = () => {
     setCollapse((prev) => !prev);
   };
-
+console.log("Rendering:", title, "Collapse:", collapse, "Data length:", albumData.length);
   return (
+    
     <div className="section-wrapper">
       <div className="section-header">
         <h2>{title}</h2>
@@ -30,7 +31,7 @@ const Section = ({ title, fetchUrl }) => {
           renderComponent={(item) => <Card data={item} />}
         />
       ) : (
-        <div className="grid">
+        <div className="section-grid">
           {albumData.map((album) => (
             <Card key={album.id} data={album} />
           ))}
