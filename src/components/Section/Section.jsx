@@ -1,39 +1,41 @@
-import React, { useEffect, useState } from "react";
-import styles from "./Section.module.css";
-import Card from "../Card/Card";
+import Card from "../Card/Card"; // ✅ correct import
+
+import Carousel from "../Carousel/Carousel";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
-function Section({ title, fetchUrl }) {
-  const [albums, setAlbums] = useState([]);
+
+const Section = ({ title, fetchUrl }) => {
+  const [albumData, setAlbumData] = useState([]);
+  const [collapse, setCollapse] = useState(false);
 
   useEffect(() => {
-  axios.get(fetchUrl)
-    .then((res) => {
-      console.log("API Album Data:", res.data); // ✅ Add this
-      setAlbums(res.data);
-    })
-    .catch((err) => console.error("API Error:", err));
-}, [fetchUrl]);
-
+    axios.get(fetchUrl).then((res) => setAlbumData(res.data));
+  }, [fetchUrl]);
 
   return (
-    <div className={styles.section}>
-      <div className={styles.sectionHeader}>
+    <div className="section-wrapper">
+      <div className="section-header">
         <h2>{title}</h2>
-        <button className={styles.toggleButton}>Collapse</button>
+        <button onClick={() => setCollapse(!collapse)}>
+          {collapse ? "Show All" : "Collapse"}
+        </button>
       </div>
-      <div className={styles.cardGrid}>
-        {albums.map(album => (
-          <Card
-            key={album.id}
-            image={album.image}
-            title={album.title}
-            follows={album.follows}
-          />
-        ))}
-      </div>
+
+      {collapse ? (
+        <Carousel
+          data={albumData}
+          renderComponent={(item) => <Card data={item} />}
+        />
+      ) : (
+        <div className="grid">
+          {albumData.map((album) => (
+            <Card key={album.id} data={album} />
+          ))}
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export default Section;

@@ -2,8 +2,8 @@ import React from "react";
 import styles from "./Card.module.css";
 import Chip from "@mui/material/Chip";
 
-function Card({ image, title, follows }) {
-  // console.log("Card props album:", album);
+function Card({ data }) {
+  const { image, title, follows } = data;
   return (
     <div className={styles.card}>
       <img src={image} alt={title} className={styles.cardImage} />
@@ -14,5 +14,6 @@ function Card({ image, title, follows }) {
     </div>
   );
 }
+
 
 export default Card;
