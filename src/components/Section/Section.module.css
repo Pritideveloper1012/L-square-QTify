@@ -1,25 +1,30 @@
-.section {
-  margin-top: 24px;
-  padding: 16px;
+.section-wrapper {
+  margin: 32px 16px;
 }
 
-.sectionHeader {
+.section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 16px;
 }
 
-.toggleButton {
-  background: none;
-  border: 1px solid black;
-  padding: 4px 8px;
+.section-header h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.section-header button {
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+  color: #34c94b; /* Green like in Figma */
   cursor: pointer;
-  border-radius: 4px;
+  font-weight: 500;
 }
 
-.cardGrid {
+.grid {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  margin-top: 16px;
 }

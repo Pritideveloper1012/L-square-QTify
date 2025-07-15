@@ -13,11 +13,15 @@ const Section = ({ title, fetchUrl }) => {
     axios.get(fetchUrl).then((res) => setAlbumData(res.data));
   }, [fetchUrl]);
 
+   const toggleCollapse = () => {
+    setCollapse((prev) => !prev);
+  };
+
   return (
     <div className="section-wrapper">
       <div className="section-header">
         <h2>{title}</h2>
-        <button onClick={() => setCollapse(!collapse)}>
+        <button onClick={toggleCollapse}>
           {collapse ? "Show All" : "Collapse"}
         </button>
       </div>
@@ -29,8 +33,8 @@ const Section = ({ title, fetchUrl }) => {
         />
       ) : (
         <div className="grid">
-          {albumData.map((album) => (
-            <Card key={album.id} data={album} />
+          {albumData.map((item) => (
+            <Card key={item.id} data={item} />
           ))}
         </div>
       )}
