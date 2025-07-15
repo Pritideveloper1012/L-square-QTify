@@ -1,9 +1,13 @@
 .button {
-  background-color: black; /* ✅ */
+  background-color: black;
   color: #1dd760;
   border-radius: 12px;
-    font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer; /* ✅ Add this HERE, not in :hover */
 }
+
 .button:hover {
   cursor: pointer; /* ✅ */
 }
