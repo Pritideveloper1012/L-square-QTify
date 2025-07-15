@@ -1,9 +1,7 @@
 import Card from "../Card/Card"; // ✅ correct import
-
 import Carousel from "../Carousel/Carousel";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
 
 const Section = ({ title, fetchUrl }) => {
   const [albumData, setAlbumData] = useState([]);
@@ -13,7 +11,7 @@ const Section = ({ title, fetchUrl }) => {
     axios.get(fetchUrl).then((res) => setAlbumData(res.data));
   }, [fetchUrl]);
 
-   const toggleCollapse = () => {
+  const toggleCollapse = () => {
     setCollapse((prev) => !prev);
   };
 
@@ -33,12 +31,12 @@ const Section = ({ title, fetchUrl }) => {
         />
       ) : (
         <div className="grid">
-          {albumData.map((item) => (
-            <Card key={item.id} data={item} />
+          {albumData.map((album) => (
+            <Card key={album.id} data={album} />
           ))}
         </div>
       )}
-    </div>
+    </div> // ✅ This curly brace properly closes the return block
   );
 };
 
