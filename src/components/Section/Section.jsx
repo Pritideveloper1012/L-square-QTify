@@ -7,10 +7,14 @@ function Section({ title, fetchUrl }) {
   const [albums, setAlbums] = useState([]);
 
   useEffect(() => {
-    axios.get(fetchUrl)
-      .then(res => setAlbums(res.data))
-      .catch(err => console.error("Error fetching albums:", err));
-  }, [fetchUrl]);
+  axios.get(fetchUrl)
+    .then((res) => {
+      console.log("API Album Data:", res.data); // ✅ Add this
+      setAlbums(res.data);
+    })
+    .catch((err) => console.error("API Error:", err));
+}, [fetchUrl]);
+
 
   return (
     <div className={styles.section}>
