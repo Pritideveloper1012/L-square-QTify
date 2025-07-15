@@ -1,0 +1,10 @@
+.button {
+  background-color: black; /* ✅ */
+  color: #1dd760;
+  border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+}
+.button:hover {
+  cursor: pointer; /* ✅ */
+}
+
