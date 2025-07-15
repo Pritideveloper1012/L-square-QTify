@@ -20,9 +20,9 @@ console.log("Rendering:", title, "Collapse:", collapse, "Data length:", albumDat
     <div className="section-wrapper">
       <div className="section-header">
         <h2>{title}</h2>
-        <button onClick={toggleCollapse}>
-          {collapse ? "Show All" : "Collapse"}
-        </button>
+       <button onClick={toggleCollapse}>
+  {collapse ? "Collapse" : "Show All"}
+</button>
       </div>
 
       {collapse ? (
