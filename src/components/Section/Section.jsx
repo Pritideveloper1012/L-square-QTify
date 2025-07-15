@@ -53,9 +53,10 @@ const Section = ({ title, fetchUrl, type }) => {
     <div className="section-wrapper">
       <div className="section-header">
         <h2>{title}</h2>
+        {/* Show All / Collapse only for Albums */}
         {type !== "song" && (
           <button onClick={handleCollapseToggle}>
-            {collapse ? "Show All" : "Collapse"}
+            {collapse ? "Collapse" : "Show All"}
           </button>
         )}
       </div>
